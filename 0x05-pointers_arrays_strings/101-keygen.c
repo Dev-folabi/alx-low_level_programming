@@ -17,27 +17,26 @@
 * Return: Always 0.
 */
 
-#define PASSWORD_LENGTH 8
+#define PASSWORD_LENGTH 12
 
 int main(void)
 {
-	char password[PASSWORD_LENGTH + 1];
+    char password[PASSWORD_LENGTH + 1];
+    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const int charset_size = sizeof(charset) - 1;
+    int i;
 
-	 const char *valid_chars =
-	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}\\|;:'\",.<>/?";
+    srand(time(NULL));
 
-	const int num_valid_chars = strlen(valid_chars);
+    for (i = 0; i < PASSWORD_LENGTH; i++)
+    {
+        int index = rand() % charset_size;
+        password[i] = charset[index];
+    }
+    password[i] = '\0';
 
-	srand(time(NULL));
+    printf("%s\n", password);
 
-	for (int i = 0; i < PASSWORD_LENGTH; i++)
-	{
-		password[i] = valid_chars[rand() % num_valid_chars];
-	}
-	password[PASSWORD_LENGTH] = '\0';
-
-	printf("Generated password: %s\n", password);
-
-	return (0);
+    return 0;
 }
 
