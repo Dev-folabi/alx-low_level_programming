@@ -7,9 +7,9 @@
 */
 int main(void)
 {
-	char *program_name = __FILE__;
+	char *mynameis = __FILE__;
 
-	printf("%s\n", program_name);
+	printf("%s\n", mynameis);
 	return (0);
 }
 
