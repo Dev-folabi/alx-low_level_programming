@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
 * main - Prints the number of arguments passed into it
@@ -7,15 +7,10 @@
 * Return: Always 0
 */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int i;
-
-	putchar("Number of arguments: %d\n", argc);
-	for (i = 0; i < argc; i++)
-	{
-	putchar("Argument %d: %s\n", i, argv[i]);
-	}
+	(void) argv;
+	printf("%d\n", argc - 1);
 	return (0);
 }
 
