@@ -3,14 +3,14 @@
 
 /**
 * main - Prints the name of the program
-*
+* @argc: count
+* @argv: vector
 * Return: Always 0
 */
-int main(void)
+int main(int argc, char *argv[])
 {
-	char *mynameis = __FILE__;
-
-	printf("%s\n", mynameis);
+	(void) argc;
+	printf("%s\n", argv[0]);
 	return (0);
 }
 
